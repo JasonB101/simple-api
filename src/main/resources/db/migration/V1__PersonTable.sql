@@ -1,0 +1,7 @@
+CREATE TABLE person (
+    id UUID NOT NULL PRIMARY KEY,
+    fName VARCHAR(100) NOT NULL,
+    lName VARCHAR(100) NOT NULL,
+    favColor VARCHAR(100) NOT NULL,
+    age INTEGER NOT NULL
+)
