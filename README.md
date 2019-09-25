@@ -12,8 +12,7 @@ Insert First Name, Last Name, Favorite Color, and Age into a database.
 
 Accepts HTTP requests using localhost:8080/api/v1/person
 
-POST, *PUT, GET, *DELETE
-* - Use the person ID as a parameter.
+(PUT, DELETE) Use the person ID as a parameter.
 
 PostgresSQL running on port 5432
 
