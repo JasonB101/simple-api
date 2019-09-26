@@ -22,5 +22,5 @@ PostgresSQL running on port 5432
   "fName": String,
   "lName": String,
   "favColor": String,
-  "age": integer
+  "age": Integer
 }
