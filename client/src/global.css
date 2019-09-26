@@ -25,6 +25,10 @@ width: 80px;
 display: inline-block;
 }
 
+.spacer {
+    flex: 1;
+}
+
 h2 {
     display: inline-block;
     margin: 5px;

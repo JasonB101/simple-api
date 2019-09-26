@@ -19,8 +19,8 @@ const App = () => {
 
                     return {
                         id,
-                        fname,
-                        lname,
+                        fName: fname,
+                        lName: lname,
                         favColor,
                         age
                     }
@@ -30,9 +30,9 @@ const App = () => {
 
     const savePerson = (person) => {
 
-        if (update[0]) updatePerson(update[1], person)
+        if (update[0]) updatePerson(update[1], person);
 
-        else createNewPerson(person)
+        else createNewPerson(person);
     }
 
     const deletePerson = (id) => {
@@ -41,18 +41,28 @@ const App = () => {
     }
 
     const updatePerson = (id, person) => {
-
+        axios.put("http://localhost:8080/api/v1/person/" + id, person);
+        changeUpdateStatus([false, ""])
+        setPeople(people.map(x => {
+            if (x.id === id) {
+                return {
+                    ...person,
+                    id
+                }
+            }
+            return x
+        }))
     }
 
     const createNewPerson = (person) => {
-        axios.post("http://localhost:8080/api/v1/person", person).then(() => getPeople())
+        axios.post("http://localhost:8080/api/v1/person", person).then(() => getPeople());
     }
 
 
 
     return (
         <div className="app-wrapper">
-            <InsertPerson methods={{savePerson, changeUpdateStatus}}/>
+            <InsertPerson update={update} people={people} methods={{savePerson, changeUpdateStatus}}/>
             <main>
                 {people.map(x => <PersonCard key={x.id} {...x} methods={{deletePerson, changeUpdateStatus}} />)}
             </main>

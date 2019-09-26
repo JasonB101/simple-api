@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const InsertPerson = (props) => {
 
-    const { methods: { savePerson, changeUpdateStatus } } = props;
+    const { methods: { savePerson, changeUpdateStatus }, update, people } = props;
 
     const [inputs, setInputs] = useState({
         fName: "",
@@ -11,10 +11,35 @@ const InsertPerson = (props) => {
         age: ""
     })
 
+    useEffect(() => {
+        const updateValues = update[0] ? people.find(x => x.id === update[1]) : {};
+        if (update[0]) {
+                updateInputs(updateValues.fName,
+                updateValues.lName,
+                updateValues.favColor,
+                updateValues.age
+            )
+        }
+    }, [update, people])
+
     const changeInput = (name, value) => {
         setInputs({
             ...inputs,
             [name]: value
+        })
+    }
+
+    const cancelUpdate = () => {
+        changeUpdateStatus([false, ""]);
+        updateInputs();
+    }
+
+    const updateInputs = (fName = "", lName = "", favColor = "", age = "") => {
+        setInputs({
+            fName,
+            lName,
+            favColor,
+            age
         })
     }
 
@@ -40,17 +65,15 @@ const InsertPerson = (props) => {
                 name="age"
                 value={inputs.age} />
             </h5>
+            <div style={{ display: "flex" }}>
+                <button onClick={() => {
+                    savePerson(inputs);
+                    updateInputs();
+                }}>Save</button>
+                <div className="spacer" ></div>
+                {update[0] && <button onClick={() => cancelUpdate()}>Cancel</button>}
 
-            <button onClick={() => {
-                savePerson(inputs);
-                setInputs({
-                    firstName: "",
-                    lastName: "",
-                    favColor: "",
-                    age: ""
-                })
-            }}>Save</button>
-
+            </div>
         </div>
     )
 }
