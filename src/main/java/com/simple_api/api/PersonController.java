@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
+@CrossOrigin
 @RequestMapping("api/v1/person")
 @RestController
 public class PersonController {
@@ -22,10 +23,12 @@ public class PersonController {
         this.personService = personService;
     }
 
+
     @PostMapping
     public void addPerson(@Valid @NonNull @RequestBody Person person){
         personService.addPerson(person);
     }
+
 
     @GetMapping
     public List<Person> getAllPeople(){

@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+}
+.personCard {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    width: 300px;
+}
+.insertPerson {
+    padding: 10px;
+    border: 1px solid black;
+    width: fit-content;
+}
+
+input {
+    font-size: 20px;
+}
+.insertPerson > h5 > p {
+width: 80px;
+display: inline-block;
+}
+
+h2 {
+    display: inline-block;
+    margin: 5px;
+}
+
+h5 {
+    margin: 5px 2px;
+}
