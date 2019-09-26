@@ -2,7 +2,7 @@
 
 #### Description
 
-A simple API using Java Spring boot and PostgreSQL
+A simple API using Java Spring boot, PostgreSQL, and React.
 
 Insert First Name, Last Name, Favorite Color, and Age into a database.
 
