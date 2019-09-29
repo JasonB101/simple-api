@@ -1,7 +1,16 @@
 * {
     box-sizing: border-box;
+    padding: 0;
 }
 
+button { 
+    padding: 5px;
+}
+
+input {
+    border: 0 0 0 0;
+    border-bottom: 1px solid black;
+}
 main {
     display: flex;
 }
@@ -15,6 +24,7 @@ main {
     padding: 10px;
     border: 1px solid black;
     width: fit-content;
+    margin: 5px;
 }
 
 input {

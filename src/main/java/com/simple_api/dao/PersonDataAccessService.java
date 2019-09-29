@@ -32,7 +32,7 @@ public class PersonDataAccessService implements PersonDao {
 
     @Override
     public List<Person> selectAllPeople() {
-        final String sql = "SELECT id, fName, lName, favColor, age FROM person";
+        final String sql = "SELECT id, fName, lName, favColor, age FROM person ORDER BY fName ASC";
 
         return jdbcTemplate.query(sql, (resultSet, i) -> {
             UUID id = UUID.fromString(resultSet.getString("id"));
